@@ -38,6 +38,13 @@ export class Pokemon {
         return capitalizeTitle(this.data.name);
     }
 
+    getTypes() {
+        if (!this.data && !this.data.types) {
+            return [];
+        }
+        return this.data.types;
+    }
+
     getImageUrl() {
         if (!this.data && !this.data.sprites && !this.data.sprites.front_default) {
             return ""
