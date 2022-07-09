@@ -2,6 +2,13 @@ import React, {useEffect, useState} from "react";
 import {getPokemonById} from "../actions/actions";
 import {Link} from "react-router-dom";
 import {capitalizeTitle} from "../util";
+import {Stats} from "./Stats"
+
+function Type(type) {
+    const title = capitalizeTitle(type.type.name);
+    const content = `Type ${type.slot}: ${title}`;
+    return <h3>{content}</h3>;
+}
 
 function Pokemon({pokemonId}) {
 
@@ -20,8 +27,8 @@ function Pokemon({pokemonId}) {
     const nextRoute = `/pokemon/${pokemonId + 1}`;
 
     const types = data.getTypes()
-        .sort((a,b) => a.slot - b.slot)
-        .map(type => <h3>Type {type.slot}: {capitalizeTitle(type.type.name)}</h3> )
+        .sort((a, b) => a.slot - b.slot)
+        .map(Type)
 
     return (
         <div>
@@ -31,6 +38,8 @@ function Pokemon({pokemonId}) {
             <img src={data.getImageUrl()} alt={"front"}/>
             <br/>
             <Link to={nextRoute}>Next</Link>
+
+            <Stats pokeData={data} />
         </div>
     );
 }

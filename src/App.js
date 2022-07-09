@@ -8,7 +8,7 @@ class App extends Component {
         return (
             <div className="App">
                 <div className="App-header">
-                    <img src={logo} className="App-logo" alt="logo"/>
+                    <img src={"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/6.png"} className="App-logo" alt="logo"/>
                     <h2>poop soup soup</h2>
                 </div>
                 <Routes/>

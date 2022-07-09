@@ -51,6 +51,10 @@ export class Pokemon {
         }
         return this.data.sprites.front_default;
     }
+
+    getHeight() {
+        return this.data.height / 10;
+    }
 }
 
 export function getPokemonByName(name) {
